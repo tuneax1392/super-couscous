@@ -1,0 +1,79 @@
+{% set name = "dask" %}
+{% set version = "2024.8.2" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 1d05e09166ac7927a54401e998aa1599e86aac666edbdaeb3096bf4b957029e0
+build:
+  number: 0
+  skip: true # [py<310]
+
+requirements:
+  host:
+    - python
+    - pip
+    - wheel
+    - setuptools
+    - versioneer 0.29
+    - tomli
+  run:
+    - python
+    - bokeh >=2.4.2
+    - cytoolz >=0.12.0
+    - dask-core =={{ version }}
+    - distributed =={{ version }}
+    - jinja2 >=2.10.3
+    - lz4 >=4.3.2
+    - numpy >=1.24
+    - pandas >=2.0
+    - pyarrow >=14.0.1
+    - dask-expr >=1.1,<1.2
+
+test:
+  imports:
+    - dask
+    - dask.array
+    - dask.bag
+    - dask.bytes
+    - dask.dataframe
+    - dask.dataframe.io
+    - dask.dataframe.tseries
+    - dask.delayed
+    - dask.diagnostics
+    - dask.distributed
+    - dask.widgets
+    - distributed
+  requires:
+    - pip
+  commands:
+    - pip check
+
+#Note: The build and dependency order for dask-distributed packages are as follows.
+#      dask-core ---> dask-expr --->distributed --->dask
+
+about:
+  home: https://www.dask.org/
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: Parallel PyData with Task Scheduling
+  description: |
+    Dask is a flexible parallel computing library for analytics.
+  doc_url: https://docs.dask.org/
+  dev_url: https://github.com/dask/dask
+
+extra:
+  recipe-maintainers:
+    - alimanfoo
+    - jakirkham
+    - jcrist
+    - koverholt
+    - martindurant
+    - mrocklin
+    - pitrou
+    - tomaugspurger
+    - jrbourbeau
