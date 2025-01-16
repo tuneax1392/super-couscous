@@ -1,0 +1,91 @@
+# This file created by conda-build 24.7.1
+# meta.yaml template originally from:
+# C:\b\abs_adfs7l2kk3\clone\recipe, last modified Thu Sep  5 09:29:55 2024
+# ------------------------------------------------
+
+package:
+  name: dask
+  version: 2024.8.2
+source:
+  sha256: 1d05e09166ac7927a54401e998aa1599e86aac666edbdaeb3096bf4b957029e0
+  url: https://pypi.io/packages/source/d/dask/dask-2024.8.2.tar.gz
+build:
+  number: '0'
+  string: py312haa95532_0
+requirements:
+  host:
+    - bzip2 1.0.8 h2bbff1b_6
+    - ca-certificates 2024.7.2 haa95532_0
+    - expat 2.6.2 hd77b12b_0
+    - libffi 3.4.4 hd77b12b_1
+    - openssl 3.0.14 h827c3e9_0
+    - pip 24.2 py312haa95532_0
+    - python 3.12.4 h14ffc60_1
+    - setuptools 72.1.0 py312haa95532_0
+    - sqlite 3.45.3 h2bbff1b_0
+    - tk 8.6.14 h0416ee5_0
+    - tomli 2.0.1 py312haa95532_1
+    - tzdata 2024a h04d1e81_0
+    - vc 14.40 h2eaa2aa_0
+    - versioneer 0.29 py312haa95532_0
+    - vs2015_runtime 14.40.33807 h98bb1dd_0
+    - wheel 0.43.0 py312haa95532_0
+    - xz 5.4.6 h8cc25b3_1
+    - zlib 1.2.13 h8cc25b3_1
+  run:
+    - bokeh >=2.4.2
+    - cytoolz >=0.12.0
+    - dask-core ==2024.8.2
+    - dask-expr >=1.1,<1.2
+    - distributed ==2024.8.2
+    - jinja2 >=2.10.3
+    - lz4 >=4.3.2
+    - numpy >=1.24
+    - pandas >=2.0
+    - pyarrow >=14.0.1
+    - python >=3.12,<3.13.0a0
+test:
+  commands:
+    - pip check
+  imports:
+    - dask
+    - dask.array
+    - dask.bag
+    - dask.bytes
+    - dask.dataframe
+    - dask.dataframe.io
+    - dask.dataframe.tseries
+    - dask.delayed
+    - dask.diagnostics
+    - dask.distributed
+    - dask.widgets
+    - distributed
+  requires:
+    - pip
+about:
+  description: 'Dask is a flexible parallel computing library for analytics.
+
+    '
+  dev_url: https://github.com/dask/dask
+  doc_url: https://docs.dask.org/
+  home: https://www.dask.org/
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: Parallel PyData with Task Scheduling
+extra:
+  copy_test_source_files: true
+  final: true
+  flow_run_id: add4dd35-1324-4322-b546-70b9f2596825
+  recipe-maintainers:
+    - alimanfoo
+    - jakirkham
+    - jcrist
+    - jrbourbeau
+    - koverholt
+    - martindurant
+    - mrocklin
+    - pitrou
+    - tomaugspurger
+  remote_url: git@github.com:AnacondaRecipes/dask-feedstock.git
+  sha: 9a4ab58511fd863efdd4670412fd387c5b77c526
